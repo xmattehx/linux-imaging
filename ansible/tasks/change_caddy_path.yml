@@ -4,4 +4,4 @@
   ignore_errors: true
   ansible.builtin.shell: |
     sed -i 's/file_server/file_server browse/' /etc/caddy/Caddyfile
-    sed -i 's-/usr/share/caddy-/var/www/config-g' /etc/caddy/Caddyfile
+    sed -i 's-/usr/share/caddy-/etc/pxe-g' /etc/caddy/Caddyfile
