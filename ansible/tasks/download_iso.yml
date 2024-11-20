@@ -1,1 +1,14 @@
 ---
+- name: Create iso dir
+  become: true
+  ignore:errors: true
+  ansible.builtin.file:
+    path: /etc/pxe/iso
+    state: directory
+    mode: '0755'
+
+- name: wget uuntu 24.04
+  become: true
+  ignore:errors: true
+  ansible.builtin.shell: |
+    wget https://releases.ubuntu.com/noble/ubuntu-24.04.1-live-server-amd64.iso /etc/pxe/iso
