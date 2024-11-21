@@ -1,1 +1,34 @@
 ---
+- name: Install dnsmasq
+  become: true
+  ignore_errors: true
+  ansible.builtin.shell: |
+    apt-get install dnsmasq -y
+
+- name: create TFTP root directory
+  ignore_errors: true
+  become: true
+  ansible.builtin.file:
+    path: /etc/pxe/tftp
+    state: directory
+    mode: '0755'
+
+- name: Config dnsmasq.conf
+  become: true
+  ansible.builtin.blockinfile:
+  prepend_newline: true
+  append_newline: true
+  path: /etc/dnsmasq.conf
+  block: |
+    # Disable DNS
+    port=0
+    # Enable TFTP Server
+    enable-tftp
+    tftp-root=/etc/pxe/tftp
+
+-name: Restart dnsmasq
+  become: true
+  ignore_errors: true
+  ansible.builtin.service:
+    name: dnsmasq
+    state: restarted
