@@ -3,7 +3,7 @@
   become: true
   ignore:errors: true
   ansible.builtin.file:
-    path: /etc/pxe/kernel
+    path: /etc/pxe/tftp/kernel
     state: directory
     mode: '0755'
 
@@ -12,6 +12,6 @@
   ignore:errors: true
   ansible.builtin.shell: |
     sudo mount /etc/pxe/iso/ubuntu-24.04.1-live-server-amd64.iso /mnt
-    sudo cp /mnt/casper/vmlinuz /etc/pxe/kernel
-    sudo cp /mnt/casper/initrd /etc/pxe/kernel
+    sudo cp /mnt/casper/vmlinuz /etc/pxe/tftp/kernel
+    sudo cp /mnt/casper/initrd /etc/pxe/tftp/kernel
     sudo umount /mnt
