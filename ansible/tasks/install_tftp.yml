@@ -17,15 +17,15 @@
 - name: Config dnsmasq.conf
   become: true
   ansible.builtin.blockinfile:
-  prepend_newline: true
-  append_newline: true
-  path: /etc/dnsmasq.conf
-  block: |
-    # Disable DNS
-    port=0
-    # Enable TFTP Server
-    enable-tftp
-    tftp-root=/etc/pxe/tftp
+    prepend_newline: true
+    append_newline: true
+    path: /etc/dnsmasq.conf
+    block: |
+      # Disable DNS
+      port=0
+      # Enable TFTP Server
+      enable-tftp
+      tftp-root=/etc/pxe/tftp
 
 - name: Restart dnsmasq
   become: true
