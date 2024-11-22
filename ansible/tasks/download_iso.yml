@@ -15,5 +15,5 @@
 
 - name: Download Ubuntu .ISO
   ansible.builtin.get_url:
-    url: hhttps://releases.ubuntu.com/noble/ubuntu-24.04.1-live-server-amd64.iso
+    url: https://releases.ubuntu.com/noble/ubuntu-24.04.1-live-server-amd64.iso
     dest: /etc/pxe/iso/ubuntu-24.04.1-live-server-amd64.iso
