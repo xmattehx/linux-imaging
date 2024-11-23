@@ -1,0 +1,23 @@
+#!ipxe 
+#### HomeLab PVE Linux Imaging System #### 
+#### This file will tell ipxe.efi where to boot from, in this case it will be my internal Caddy server### 
+dhcp
+set httpserver http://192.168.88.7
+# Some menu defaults
+set menu-timeout 5000
+set submenu-timeout ${menu-timeout}
+
+###################### MAIN MENU ####################################
+:start
+menu PVE Linux Imaging
+item ubuntu24041 Ubuntu 24.04.1 Server Zero Touch Deploy
+item shl Shell
+item exit Exit iPXE and continue BIOS boot
+item hddboot Exit iPXE and boot from first HDD
+choose selected && goto ${selected} || goto start
+
+:ubuntu24041
+kernel  ${httpserver}/kernel/noble/24.04.1/vmlinuz ip=dhcp cloud-config-url=/dev/null url=${httpserver}/iso/ubuntu-24.04-live-server-amd64.iso autoinstall ds=nocloud-net;s=${httpserver}/config/ubuntu24041/
+initrd  ${httpserver}/kernel/noble/24.04.1/initrd
+boot || goto failed
+goto start

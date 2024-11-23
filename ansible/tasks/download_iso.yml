@@ -3,7 +3,7 @@
   become: true
   ignore_errors: true
   ansible.builtin.file:
-    path: /etc/pxe/iso
+    path: /etc/pxe/www/iso
     state: directory
     mode: '0755'
 
@@ -16,4 +16,4 @@
 - name: Download Ubuntu .ISO
   ansible.builtin.get_url:
     url: https://releases.ubuntu.com/noble/ubuntu-24.04.1-live-server-amd64.iso
-    dest: /etc/pxe/iso/ubuntu-24.04.1-live-server-amd64.iso
+    dest: /etc/pxe/www/iso/ubuntu-24.04.1-live-server-amd64.iso

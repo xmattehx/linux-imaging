@@ -3,6 +3,7 @@
   tasks:
   - include_tasks: tasks/install_caddy.yml
   - include_tasks: tasks/change_caddy_path.yml
+  - include_tasks: tasks/crontab_caddy.yml
   - include_tasks: tasks/download_iso.yml
   - include_tasks: tasks/extract_kernel.yml
   - include_tasks: tasks/install_tftp.yml

@@ -3,7 +3,7 @@
   become: true
   ignore_errors: true
   ansible.builtin.file:
-    path: /etc/pxe/tftp/kernel
+    path: /etc/pxe/tftp/kernel/noble/24.04.1
     state: directory
     mode: '0755'
 
@@ -11,13 +11,13 @@
   become: true
   ignore_errors: true
   ansible.builtin.shell: |
-    mount /etc/pxe/iso/ubuntu-24.04.1-live-server-amd64.iso /mnt
+    mount /etc/pxe/www/iso/ubuntu-24.04.1-live-server-amd64.iso /mnt
 
 - name: Extract kernel files for NBP boot
   become: true
   ignore_errors: true
   ansible.builtin.shell: |
     sudo mount /etc/pxe/iso/ubuntu-24.04.1-live-server-amd64.iso /mnt
-    sudo cp /mnt/casper/vmlinuz /etc/pxe/tftp/kernel
-    sudo cp /mnt/casper/initrd /etc/pxe/tftp/kernel
+    sudo cp /mnt/casper/vmlinuz /etc/pxe/www/kernel/noble/24.04.1/
+    sudo cp /mnt/casper/initrd /etc/pxe/www/kernel/noble/24.04.1/
     sudo umount /mnt
