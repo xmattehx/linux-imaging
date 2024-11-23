@@ -7,9 +7,15 @@
     special_time: reboot
     job: "caddy start --config /etc/caddy/Caddyfile"
 
-- name: Restart Caddy
-  become: true
-  ignore_errors: true
-  ansible.builtin.shell: |
-    caddy stop
-    caddy start --config /etc/caddy/Caddyfile
+# - name: Restart Caddy
+#   become: true
+#   ignore_errors: true
+#   ansible.builtin.shell: |
+#     caddy stop
+#     caddy start --config /etc/caddy/Caddyfile
+
+- name: Restart Caddy service
+  service:
+    name: caddy
+    enabled: yes
+    state: restarted

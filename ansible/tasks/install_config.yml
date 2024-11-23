@@ -1,0 +1,5 @@
+---
+- name: Download autoexec.ipxe
+  ansible.builtin.get_url:
+    url: https://github.com/xmattehx/linux-imaging/blob/main/boot/autoexec.ipxe
+    dest: /etc/pxe/tftp/autoexec.ipxe

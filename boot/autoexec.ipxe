@@ -17,7 +17,7 @@ item hddboot Exit iPXE and boot from first HDD
 choose selected && goto ${selected} || goto start
 
 :ubuntu24041
-kernel  ${httpserver}/kernel/noble/24.04.1/vmlinuz ip=dhcp cloud-config-url=/dev/null url=${httpserver}/iso/ubuntu-24.04-live-server-amd64.iso autoinstall ds=nocloud-net;s=${httpserver}/config/ubuntu24041/
+kernel  ${httpserver}/kernel/noble/24.04.1/vmlinuz ip=dhcp cloud-config-url=/dev/null url=${httpserver}/iso/ubuntu-24.04-live-server-amd64.iso autoinstall ds=nocloud-net;s=${httpserver}/config/noble/24.04.1/ubuntu24041/
 initrd  ${httpserver}/kernel/noble/24.04.1/initrd
 boot || goto failed
 goto start
