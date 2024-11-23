@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   tasks:
-  - include_tasks: taks/set_timezone.yml
+  - include_tasks: tasks/set_timezone.yml
   - include_tasks: tasks/install_caddy.yml
   - include_tasks: tasks/change_caddy_path.yml
   - include_tasks: tasks/crontab_caddy.yml
