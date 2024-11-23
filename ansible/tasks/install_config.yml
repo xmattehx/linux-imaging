@@ -1,4 +1,12 @@
 ---
+- name: Create config dir
+  become: true
+  ignore_errors: true
+  ansible.builtin.file:
+    path: /etc/pxe/www/config/noble/24.04.1/ubuntu24041/
+    state: directory
+    mode: '0755'
+
 - name: Download user-data
   ansible.builtin.get_url:
     url: https://github.com/xmattehx/linux-imaging/blob/main/config/noble/24.04.1/ubuntu24041/user-data
