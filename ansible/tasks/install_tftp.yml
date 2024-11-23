@@ -1,4 +1,3 @@
-# "yaml.schemaStore.enable": false
 ---
 - name: Install dnsmasq
   become: true
