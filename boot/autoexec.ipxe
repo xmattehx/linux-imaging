@@ -2,7 +2,7 @@
 #### HomeLab PVE Linux Imaging System #### 
 #### This file will tell ipxe.efi where to boot from, in this case it will be my internal Caddy server### 
 dhcp
-set httpserver http://192.168.88.7
+set httpserver http://192.168.88.195
 # Some menu defaults
 set menu-timeout 5000
 set submenu-timeout ${menu-timeout}
